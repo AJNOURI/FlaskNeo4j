@@ -1,14 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def hello():
     #return 'Hello World!'
+    mymessage = 'Hello World!, I have been passed as a context.'
+    mylist = [1, 2, 3]
+    mydictlist = [{"name": 'Jason'}, {"name": 'Alice'}, {"name": 'Lucy'}]
+    return render_template("index.html", mymessage=mymessage, mylist=mylist, mydictlist=mydictlist)
 
-    MyList = [1, 2, 3]
-    return render_template("index.html", message="Hello World!, I have been passed as a context.", data=MyList)
-
-    #return render_template("index.html", data=MyList)
 
 @app.route('/about')
 def about():

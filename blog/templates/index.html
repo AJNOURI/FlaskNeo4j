@@ -5,9 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-{{ message }}
-{% for d in data %}
-{{ d }}
+
+##### SENDING PYTHON VARIABLES TO TEMPLATES #####
+<p>
+Text messages ==>
+{{ mymessage }}
+<p>
+List ==>
+{% for i in mylist %}
+{{ i }}
 {% endfor %}
+<p>
+List of dictionary ==>
+{% for j in mydictlist %}
+{{ j.name }}
+{% endfor %}
+
+
+
+
 </body>
 </html>
