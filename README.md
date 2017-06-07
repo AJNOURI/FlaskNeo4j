@@ -3,7 +3,8 @@ Web App to manage a Neo4j database.
 
 
 #### Start the virtualenv:
-~/code/FlaskNeo4j/VirtualEnvs$ source /home/ajn/code/FlaskNeo4j/VirtualEnvs/FlaskNeo4j/bin/activate
+\~/code/FlaskNeo4j/VirtualEnvs$ source /home/ajn/code/FlaskNeo4j/VirtualEnvs/FlaskNeo4j/bin/activate
+
 (FlaskNeo4j) ajn@~/code/FlaskNeo4j/VirtualEnvs$
 
 #### Start Neo4j container mapped to the Neo4j data & log directories:
