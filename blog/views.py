@@ -1,31 +1,39 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, session, redirect, url_for, render_template, flash
+
+
 app = Flask(__name__)
 
-@app.route('/', methods=["GET", "POST"])
+
+@app.route("/")
 def index():
-    #return 'Hello World!'
-
-    #### PASSING CONTEXT TO TEMPLATE PAGES #####
-    mymessage = 'Hello World!, I have been passed as a context.'
-    mylist = [1, 2, 3]
-    mydictlist = [{"name": 'Jason'}, {"name": 'Alice'}, {"name": 'Lucy'}]
-    # return render_template("index.html", mymessage=mymessage, mylist=mylist, mydictlist=mydictlist)
+    return render_template("index.html")
 
 
-    #### 2) GET POST METHODS ####
-    # the default method is GET
-    getpostmessage = "This is a GET request"
-    if request.method == "POST":
-        getpostmessage="This is a POST request"
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return "TODO"
 
-    return render_template("index.html", mymessage=mymessage, mylist=mylist, \
-                           mydictlist=mydictlist, getpostmessage=getpostmessage)
 
-@app.route('/about')
-def about():
-    return('The about page')
+@app.route("/login")
+def login():
+    return "TODO"
 
-#### 3) DYNAMIC URL ####
-@app.route('/about/<varurl>')
-def dynamicurl(varurl):
-    return('This page is  about {0}.'.format(varurl))
+
+@app.route("/add_post")
+def add_post():
+    return "TODO"
+
+
+@app.route("/like_post/<post_id>")
+def like_post(post_id):
+    return "TODO"
+
+
+@app.route("/profile/<username>")
+def profile(username):
+    return "TODO"
+
+
+@app.route("/logout")
+def logout():
+    return "TODO"

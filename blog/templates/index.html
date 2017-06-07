@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% block body %}
 
-##### SENDING PYTHON VARIABLES TO TEMPLATES #####
-<p>
-Text messages ==>
-{{ mymessage }}
-<p>
-List ==>
-{% for i in mylist %}
-{{ i }}
-{% endfor %}
-<p>
-List of dictionary ==>
-{% for j in mydictlist %}
-{{ j.name }}
-{% endfor %}
-<p>
-##### POST & GET requests #####
+<h2>Home</h2>
+  {% if session.username %}
+    <h3>Share New Post</h3>
+    <form action="{{ url_for('add_post') }}" method="post">
+        <dl>
+            <dt>Title:</dt>
+            <dd><input type="text" size="30" name="title"></dd>
+            <dt>Tags (separated by commas):</dt>
+            <dd><input type="text" size="30" name="tags"></dd>
+            <dt>Text:</dt>
+            <dd><textarea name="text" rows="5" cols="40"></textarea></dd>
+        </dl>
+        <input type="submit" value="Share">
+    </form>
+  {% endif %}
 
-<form method="post">
-    <button type="submit"> Click me</button>
-</form>
-{{ getpostmessage }}
-</body>
-</html>
+<br>
+
+<h3>Today's Recent Posts</h3>
+{% include "display_posts.html" %}
+
+{% endblock %}
